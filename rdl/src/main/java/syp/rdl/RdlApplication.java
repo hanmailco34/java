@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RdlApplication {
 
 	public static void main(String[] args) {//테스트한다고
-		SpringApplication.run(RdlApplication.class, args);
+		SpringApplication.run(RdlApplication.class, args); 
 	}
 
 }
