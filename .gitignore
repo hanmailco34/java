@@ -37,7 +37,7 @@ out/
 .vscode/
 // vue
 
-/vue/node_modules
+/frontend/node_modules
 .DS_Store
 /vue/dist
 # local env files
