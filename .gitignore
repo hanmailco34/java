@@ -35,7 +35,6 @@ out/
 
 ### VS Code ###
 .vscode/
-// vue
 
 /frontend/node_modules
 .DS_Store

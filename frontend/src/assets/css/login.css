@@ -1,0 +1,40 @@
+body {
+    background-color: #ccc;
+}
+.login_container {
+    max-width: 600px;   
+    margin: 0 auto;
+}
+
+.login_container .login_form {
+    width: 300px;
+    height: 400px;
+    margin: 100px auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px white;
+}
+
+.login_container .login_form .login_title {
+    font-size: 26px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.login_container .login_form .id_box {
+    margin: 0 auto;
+    width: 192px;
+    margin-top: 30px;
+}
+
+.login_container .login_form .pwd_box {
+    margin: 0 auto;
+    width: 192px;
+    margin-top: 30px;
+}
+
+.login_container .login_form .login_box {
+    margin: 0 auto;
+    width: 82px;
+    margin-top: 30px;
+}
