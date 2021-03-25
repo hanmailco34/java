@@ -13,6 +13,7 @@ body {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 10px white;
+    position: relative;
 }
 
 .login_container .login_form .login_title {
@@ -35,6 +36,29 @@ body {
 
 .login_container .login_form .login_box {
     margin: 0 auto;
-    width: 82px;
+    width: 192px;
     margin-top: 30px;
+}
+
+.login_container .login_form .login_box .login_width {
+    cursor: pointer;
+    width: 192px;
+}
+
+.login_container .login_form .message_box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.login_container .login_form .join_box {
+    text-align: right;
+    font-size: 14px;
+    width: 192px;
+    margin: 10px auto 0px;
+    text-decoration: underline;    
+}
+
+.login_container .login_form .join_box span {
+    cursor: pointer;
 }
