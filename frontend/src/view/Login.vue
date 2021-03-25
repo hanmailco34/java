@@ -14,7 +14,9 @@
                 <Button label="로그인"  @click="Login" class="login_width"/>
             </div>
             <div class="message_box">
-                <Message severity="warn" :sticky="false" :life=0 ref="message">최소 8자 이상 & 최소 1자 소문자 & 최소 1자 대문자</Message>
+                <Message severity="warn" :sticky="false" :life=0 ref="message">
+                    <span ref="messageTxt"></span>
+                </Message>
             </div>
             <div class="join_box">
                 <router-link to="join">회원가입</router-link>
@@ -28,7 +30,7 @@ import InputText from 'primevue/inputtext';
 import Password from 'primevue/password';
 import Button from 'primevue/button';
 import Message from 'primevue/message';
-import {ref} from 'vue';
+import {ref,getCurrentInstance} from 'vue';
 import {checkLogin} from '@/composition/use_login';
 
 export default {
@@ -42,24 +44,31 @@ export default {
         const idValue = ref('');
         const pwdValue = ref('');
         const message = ref('');
+        const messageTxt = ref('');
+        const {ctx} = getCurrentInstance();    
+        const notVaildLogin = '최소 8자 이상 & 최소 1자 소문자 & 최소 1자 대문자';
+        const notMatchLogin = '아이디나 비밀번호가 틀립니다.';  
 
         const Login = () => {
-            if(checkLogin(idValue.value,pwdValue.value)) {
-                console.log("로그인");
-            }
-            else {
-                message.value.visible = true;
-                setTimeout(()=>{
-                    message.value.visible = false;
-                },2000)
-            }
+            checkLogin(idValue.value,pwdValue.value).then(r=>{
+                if(!r) {
+                    ctx.msgShow(message.value,messageTxt.value,notVaildLogin);
+                }
+                else {
+                    if(r.status === 'OOPS') {
+                        ctx.msgShow(message.value,messageTxt.value,notMatchLogin);
+                    }
+                    else alert('로그인');
+                }
+            })
         }
         
         return {
             idValue,
             pwdValue,
             Login,
-            message
+            message,
+            messageTxt
         }
     }
 }

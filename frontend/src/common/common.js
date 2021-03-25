@@ -1,6 +1,10 @@
 const globalFunc = {
-    common1: () => {
-        console.log(1);
+    msgShow: (target,txtTarget,txt) => {
+        txtTarget.textContent = txt;
+        target.visible = true;
+        setTimeout(()=>{
+            target.visible = false;
+        },2000)
     }
 };
 

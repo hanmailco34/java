@@ -1,9 +1,9 @@
 export function fetchGetCall(url) {
-    fetch(url)
+    return fetch(url)
     .then(r=>{
         return r.json();
     })
     .then(r=>{
-        console.log(r);
+        return r;
     })
 }
