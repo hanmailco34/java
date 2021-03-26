@@ -32,6 +32,7 @@ import Button from 'primevue/button';
 import Message from 'primevue/message';
 import {ref,getCurrentInstance} from 'vue';
 import {checkLogin} from '@/composition/use_login';
+import { useRouter } from 'vue-router';
 
 export default {
     components: {
@@ -47,7 +48,8 @@ export default {
         const messageTxt = ref('');
         const {ctx} = getCurrentInstance();    
         const notVaildLogin = '최소 8자 이상 & 최소 1자 소문자 & 최소 1자 대문자';
-        const notMatchLogin = '아이디나 비밀번호가 틀립니다.';  
+        const notMatchLogin = '아이디나 비밀번호가 틀립니다.';
+        const router = useRouter();  
 
         const Login = () => {
             checkLogin(idValue.value,pwdValue.value).then(r=>{
@@ -58,7 +60,12 @@ export default {
                     if(r.status === 'OOPS') {
                         ctx.msgShow(message.value,messageTxt.value,notMatchLogin);
                     }
-                    else alert('로그인');
+                    else {
+                        localStorage.setItem('userInfo',`{"id":"${idValue.value}","name":"${r.data.name}","loginTime":"${new Date().toUTCString()}"}`);
+                        router.push({
+                            name: 'Home'
+                        });
+                    }
                 }
             })
         }
