@@ -18,8 +18,7 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public UserInfo getUserInfo(String userId, String userPassword) {
-		return uifRepo.findMember(userId, userPassword).orElseThrow(() -> new NoSuchElementException("User not found"));
+		return uifRepo.findMember(userId, userPassword);
 	}
-
 }
  

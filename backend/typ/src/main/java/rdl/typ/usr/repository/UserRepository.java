@@ -12,6 +12,6 @@ import rdl.typ.usr.dto.UserInfo;
 @Repository
 public interface UserRepository extends JpaRepository<UserInfo, Integer> {
 	  @Query("select m from User_Info m where userId = :userId and userPassword = :userPassword")
-	  Optional<UserInfo> findMember(@Param("userId") String userId, @Param("userPassword") String userPassword);
+	  UserInfo findMember(@Param("userId") String userId, @Param("userPassword") String userPassword);
 }
  

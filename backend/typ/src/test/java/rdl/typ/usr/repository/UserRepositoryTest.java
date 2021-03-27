@@ -15,9 +15,6 @@ public class UserRepositoryTest{
 		String userId = "drrg";
 		String userPassword = "123123#l2";
 		
-		userRepo.findMember(userId, userPassword).ifPresent(userInfo -> {
-			System.out.println(userInfo);
-		});
 	}
 	
 }
