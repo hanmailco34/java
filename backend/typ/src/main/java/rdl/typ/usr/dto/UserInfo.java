@@ -27,7 +27,7 @@ public class UserInfo {
 		public void setUserId(String userId) {
 			this.userId = userId;
 		}
-		public String getUserPassword() {
+		public String getUserPassword() { 
 			return userPassword;
 		}
 		public void setUserPassword(String userPassword) {

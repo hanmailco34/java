@@ -9,3 +9,4 @@ public interface UserService {
 	
 	public UserInfo getUserInfo(String userId, String userPassword);
 }
+ 

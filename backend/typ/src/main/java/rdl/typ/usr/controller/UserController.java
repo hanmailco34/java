@@ -49,7 +49,7 @@ public class UserController {
 			e.getMessage();
 			status = "OOPS";
 			msg = "login_fail";
-			result.put("msg", msg);
+			result.put("msg", msg); 
 			result.put("status", status);
 		}
 		LOG.info("result => " + res); 
