@@ -52,7 +52,7 @@ public class UserController {
 			result.put("msg", msg);
 			result.put("status", status);
 		}
-		LOG.info("result => " + res);
+		LOG.info("result => " + res); 
 		return result;
 
 	}
