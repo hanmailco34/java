@@ -40,19 +40,18 @@ public class UserController {
 		Map<String, Object> result = new HashMap<>();
 		try {
 			UserInfo user = userService.getUserInfo(req.getUserId(), req.getUserPassword());
-			if (user != null) {
-				status = "OK";
-				result.put("data", user);
-				result.put("status", status);
-			}
+			status = "OK";
+			result.put("data", user);
+			result.put("status", status);
+
 		} catch (NoSuchElementException e) {
 			e.getMessage();
 			status = "OOPS";
 			msg = "login_fail";
-			result.put("msg", msg); 
+			result.put("msg", msg);
 			result.put("status", status);
 		}
-		LOG.info("result => " + res); 
+		LOG.info("result => " + res);
 		return result;
 
 	}
