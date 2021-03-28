@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import rdl.typ.common.CommonCode;
+import rdl.typ.exception.LoginFailException;
+import rdl.typ.exception.TokenInvalidException;
 import rdl.typ.jwt.TokenResponse;
 import rdl.typ.usr.dto.UserInfo;
 import rdl.typ.usr.service.impl.UserServiceImpl;
@@ -31,29 +34,26 @@ public class UserController {
 	private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 
 	@PostMapping("/login")
-	public @ResponseBody Map<String, Object> userLogin(@RequestBody UserInfo req) {
+	public @ResponseBody Map<String, Object> userLogin(@RequestBody UserInfo request) throws LoginFailException {
 		Map<String, Object> result = new HashMap<>();
-		UserInfo user = userService.getUserInfo(req.getUserId(), req.getUserPassword());
-		Optional.ofNullable(user).ifPresentOrElse(u -> {
-			result.put("data", u);
-			result.put("status", "OK");
-			result.put("jwt",new TokenResponse(userService.createToken(req), "bearer"));
-		}, () -> {
-			result.put("status", "OOPS");
-			result.put("msg", "login_fail");
-		});
+		UserInfo user = userService.getUserInfo(request.getUserId(), request.getUserPassword());
+		result.put(CommonCode.DATA, Optional.ofNullable(user).orElseThrow(() -> new LoginFailException("Not Found User")));
+		result.put(CommonCode.MESSAGE, CommonCode.SUCCESS);
+		result.put("jwt",new TokenResponse(userService.createToken(request), "bearer"));
 		return result; 
 	}
+	
+	@PostMapping("/info") // interceptor 검증을 통해 token으로 정보를 가져옴.
+    public ResponseEntity<UserInfo> info(HttpServletRequest request) {
+		  String name = (String) request.getAttribute("name");
+		  UserInfo user = userService.getUserInfoById((String) request.getAttribute("userId")); 
+		  return ResponseEntity.ok().body(user);
+    }
+	
 	@PostMapping("/test")
     public ResponseEntity<TokenResponse> login(@RequestBody UserInfo req) {
 		LOG.info("reqValue == > " + req);	
 		String token = userService.createToken(req);
         return ResponseEntity.ok().body(new TokenResponse(token, "bearer"));
-    }
-	@PostMapping("/info")
-    public ResponseEntity<UserInfo> info(HttpServletRequest request) {
-		  String name = (String) request.getAttribute("name");
-		  UserInfo user = userService.getUserInfoById((String) request.getAttribute("userId")); 
-		  return ResponseEntity.ok().body(user);
     }
 }
