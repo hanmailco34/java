@@ -6,9 +6,9 @@ import javax.persistence.Id;
 
 @Entity(name = "User_Info")
 public class UserInfo {
-		@Id
 		@Column(name = "user_num")
 		private Long userNum;
+		@Id
 		@Column(name = "user_id")
 		private String userId;
 		@Column(name = "user_password")
