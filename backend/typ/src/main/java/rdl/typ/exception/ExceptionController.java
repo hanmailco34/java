@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import rdl.typ.common.CommonCode;
+import rdl.typ.comm.CommonCode;
 
 @ControllerAdvice
 public class ExceptionController {

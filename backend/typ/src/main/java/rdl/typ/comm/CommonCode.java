@@ -1,4 +1,4 @@
-package rdl.typ.common;
+package rdl.typ.comm;
 
 public class CommonCode {
 

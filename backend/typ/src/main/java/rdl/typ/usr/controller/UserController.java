@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import rdl.typ.common.CommonCode;
+import rdl.typ.comm.CommonCode;
 import rdl.typ.exception.LoginFailException;
 import rdl.typ.exception.TokenInvalidException;
 import rdl.typ.jwt.TokenResponse;
