@@ -5,9 +5,15 @@
 </template>
 
 <script>
+import { getCurrentInstance } from 'vue'
 
 export default {
   setup() {
+    const {ctx} = getCurrentInstance();
+
+    if(!ctx.userInfo) {         
+      ctx.setUserInfo();
+    }
     
   }
 }

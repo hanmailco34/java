@@ -27,6 +27,9 @@ const globalFunc = {
         }
         return new Date(target);
     },
+    setUserInfo: () =>{
+        globalFunc.userInfo = JSON.parse(localStorage.getItem('userInfo'))
+    },
     userInfo: JSON.parse(localStorage.getItem('userInfo')),
 
 };
