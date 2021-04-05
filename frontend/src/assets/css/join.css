@@ -1,0 +1,61 @@
+body {
+    background-color: #ccc;
+}
+
+.join_container {
+    max-width: 1100px;   
+    margin: 0 auto;
+}
+
+.join_container .join_form {
+    width: 600px;
+    height: 700px;
+    margin: 100px auto;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px white;
+    position: relative;
+}
+.join_container .join_form .id_box{
+    margin: 0 auto;
+    width: 192px;
+    margin-top: 1px;
+}
+
+.join_container .join_form .name_box{
+    margin: 0 auto;
+    width: 192px;
+    margin-top: 1px;
+}
+.join_container .join_form .pwd_box1{
+    margin: 0 auto;
+    width: 192px;
+    margin-top: 1px;
+}
+.join_container .join_form .pwd_box2{
+    margin: 0 auto;
+    width: 192px;
+    margin-top: 1px;
+}
+.join_container .join_form .email_box{
+    margin: 0 auto;
+    width: 192px;
+    margin-top: 1px;
+}
+.join_container .join_form .join_title {
+    font-size: 26px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.join_container .join_form .register_box {
+    margin: 0 auto;
+    width: 192px;
+    margin-top: 30px;
+}
+
+.join_container .join_form .register_box .register_width {
+    cursor: pointer;
+    width: 192px;
+    margin-top: 1px;
+}

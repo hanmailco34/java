@@ -9,3 +9,23 @@ export async function checkLogin(idValue,pwdValue) {
     }
     return false;
 }
+export function isNull(psValue)
+{
+	if(new String(psValue).valueof() == "undefined") {
+		return true;
+	}
+	
+	if(psValue == null){
+		return true;
+	}
+	
+	if(("x"+psValue == "xNaN") && (new String(psValue.length).valueof() == "undefined")) {
+		return true;
+	}
+	
+	if(psValue.length == 0) {
+		return true;
+	}
+	
+	return false;
+}
